@@ -1,0 +1,12 @@
+services:
+  tareas:
+    build: .
+    container_name: tareas
+    volumes:
+      - ./main.py:/app/main.py
+      - ./scripts:/app/scripts
+      - ./log:/app/log
+    environment:
+      - TZ=Europe/Madrid
+    command: python main.py
+    restart: unless-stopped
